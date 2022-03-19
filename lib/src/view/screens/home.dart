@@ -20,7 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Home Screen'),
       ),
       body:  Container(
-        child: const Center(child:  Text('Hello')),
+        child: const Center(
+            child:  Center(child: Text('Hello'))),
 
       ),
     );
