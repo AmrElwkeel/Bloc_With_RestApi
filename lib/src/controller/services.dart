@@ -1,24 +1,23 @@
 import 'package:api_bloc_clean/src/model/model_photos.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
-
+import 'dart:convert' as convert;
 
 
 class PhotosServices{
 
+static const baseUrl = "https://jsonplaceholder.typicode.com/photos";
 
 
+   static Future<Photos> getPhotos()async{
+     try {
+       http.Response response = await http.get(Uri.parse(baseUrl));
+       final jsonPhotos = convert.jsonDecode(response.body);
+       print(jsonPhotos.toString());
+       return jsonPhotos ;
 
-   Future<Photos> getPhotos()async{
-
-     const String  url ="https://jsonplaceholder.typicode.com/photos";
-     final response = await get(Uri.parse(url));
-     final photos = photosFromJson(response.body);
-
-
-
-     return photos;
-
+     }on Exception catch(error){
+         rethrow ;
+     }
    }
 
 

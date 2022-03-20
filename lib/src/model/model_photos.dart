@@ -29,20 +29,20 @@ class  Photos{
 });
 
 
-   factory Photos.fromJson(Map<String , dynamic> json){
-     final data = Photos(
-         albumId: json['id'],
-         id:json['title'],
-         title: json['title'],
-         url:json['id'],
-         thumbnailUrl:json['id'],
-     );
-     return data;
+  factory Photos.fromJson(Map<String , dynamic> json){
+    final data = Photos(
+      albumId: json['id'],
+      id:json['title'],
+      title: json['title'],
+      url:json['id'],
+      thumbnailUrl:json['id'],
+    );
+    return data;
 
   }
 
   @override
- 
+
   List<Object?> get props => [id,albumId,title,url,thumbnailUrl];
 
 

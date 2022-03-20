@@ -22,9 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
       body:  Container(
         child:  Column(
           children: const [
-            Text('Hello'),
-            Text('World'),
-            Text('Hello World Users'),
           ],
         ),
 
