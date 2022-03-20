@@ -7,9 +7,9 @@ import 'src/app.dart';
 
 
 void main(){
-   PhotosServices.getPhotos();
+   // PhotosServices.getPhotos();
 
-
+   runApp(App());
 }
-// runApp(App());
+//
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 
 
@@ -16,11 +17,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      appBar: AppBar(
-        title: Text('Home Screen'),
-      ),
-      body:  Container(
+      body:  SingleChildScrollView(
+        scrollDirection: Axis.vertical,
         child:  Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: const [
           ],
         ),
