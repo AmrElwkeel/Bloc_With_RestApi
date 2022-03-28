@@ -1,9 +1,13 @@
-
-
 import 'dart:io';
-
+import 'package:api_bloc_clean/src/bloc/authentication/bloc/authentication_bloc.dart';
 import 'package:api_bloc_clean/src/view/screens/home.dart';
+import 'package:api_bloc_clean/src/view/screens/login.dart';
+import 'package:api_bloc_clean/src/view/style/theme_app.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+
 
 
 class App extends StatelessWidget {
@@ -11,14 +15,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if(Platform.isIOS){
-      return Container();
-    }
-    else if(Platform.isAndroid){
-       return PlatformApp();
-    }
-    return  CircularProgressIndicator();
-
+    return MultiBlocProvider(
+        providers:[
+          BlocProvider(create: (context)=>AuthenticationBloc()),
+        ],
+        child: const PlatformApp(),
+    );
   }
 }
 
@@ -29,10 +31,17 @@ class PlatformApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-       home: HomeScreen(),
-    );
+    if (Platform.isIOS) {
+      return const CupertinoApp();
+    }
+    else {
+      return  MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const LoginScreen(),
+        theme: themeData,
+      );
+    }
   }
 }
+
 

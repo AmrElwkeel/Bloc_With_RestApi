@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
         child:  Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
+            Center(child: Text('Hello ')),
           ],
         ),
 
